@@ -1,0 +1,19 @@
+{
+  "name": "pirate-chicks-vintage",
+  "version": "1.0.0",
+  "description": "vintage e-commerce app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristenkrofchik/pirate-chicks-vintage.git"
+  },
+  "author": "kristen krofchik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristenkrofchik/pirate-chicks-vintage/issues"
+  },
+  "homepage": "https://github.com/kristenkrofchik/pirate-chicks-vintage#readme"
+}
