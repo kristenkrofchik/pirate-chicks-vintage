@@ -1,22 +1,22 @@
 CREATE TABLE categories (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
-    description NOT NULL
 );
 
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,
     product_name TEXT NOT NULL,
     description TEXT NOT NULL,
+    condition TEXT NOT NULL,
     product_image URL, 
     quantity INTEGER NOT NULL,
     primary_color TEXT,
     era TEXT NOT NULL,
-    height INTEGER,
-    width INTEGER,
+    height_in_inches INTEGER,
+    width_in_inches INTEGER,
     date_added TIMESTAMP NOT NULL, 
     price DECIMAL NOT NULL,
-    category_id INTEGER 
+    category_name TEXT
       REFERENCES categories ON DELETE CASCADE
 );
 
