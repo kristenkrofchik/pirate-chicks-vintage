@@ -82,6 +82,47 @@ class User {
             return user;
         }
 
+    /**Given a username, return data about user.
+     * Returns { username, first_name, last_name, email }
+     * Throws NotFoundError if user not found.
+     * This will be used for the User Profile page
+     */
+
+    static async get(username) {
+        const userRes = await db.query(
+            `SELECT username,
+                    first_name AS 'firstName',
+                    last_name AS 'lastName',
+                    email
+            FROM users
+            WHERE username = $1`,
+            [username],
+        );
+
+        const user = userRes.rows[0];
+
+        if(!user) throw new NotFoundError(`This username is not valid.`);
+
+        return user;
+    }
+
+    /**Update user data with data.
+     * This is a partial update - will only change provided fields.
+     * Data can include {firstName, lastName, password, email}
+     * Returns {username, firstName, lastName, email}
+     * Throws NotFoundError if not found.
+     * This will be used for the User's Profile Page
+     */
+
+    static async update(username, data) {
+        if(data.password) {
+            data.password = await bcrypt.hash(data.password, BCRYPT_WORK_FACTOR);
+        }
+
+        //left off here
+    }
+
+
 
 
 
