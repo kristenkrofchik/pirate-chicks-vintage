@@ -88,5 +88,92 @@ class Product {
         return productsRes.rows;
     }
 
-}
+    /**Given a product id, return data about product
+     * Throws NotFoundError if not found
+     */
+
+    static async get(id) {
+        const productRes = await db.query(
+            `SELECT name,
+                    description,
+                    condition,
+                    image,
+                    quantity,
+                    primary_color AS 'primaryColor',
+                    era,
+                    height_in_inches AS 'heightInInches',
+                    width_in_inches AS 'widthInInches',
+                    date_added AS 'dateAdded',
+                    price,
+                    category_name AS 'categoryName'
+            FROM products
+            WHERE id = $1`,
+            [id]);
+        
+        const product = productRes.rows[0];
+
+        if (!product) throw new NotFoundError(`No product with id ${id}. Please try again.`);
+
+        return product;
+    }
+
+    /**Update product data with data.
+     * A 'partial update' - will only change field provided.
+     * Throws NotFoundErrod if not found.
+     */
+
+    static async update(id, data) {
+        const { setCols, values } = sqlForPartialUpdate(
+            data,
+            {
+                primaryColor: 'primary_color',
+                heightInInches: 'height_in_inches',
+                widthInInches: 'width_in_inches',
+                dateAdded: 'date_added',
+                categoryName: 'category_name'
+            });
+        const handleVarIdx = '$' + (values.length + 1);
+
+        const querySql = `UPDATE products
+                          SET ${setCols}
+                          WHERE handle = ${handleVarIdx}
+                          RETURNING name,
+                                    description,
+                                    condition, 
+                                    image,
+                                    quantity,
+                                    primary_color AS 'primaryColor',
+                                    era,
+                                    height_in_inches AS 'heightInInches',
+                                    width_in_inches AS 'widthInInches',
+                                    date_added AS 'dateAdded',
+                                    price,
+                                    category_name AS 'categoryName'`;
+        const result = await db.query(querySql, [...values, id]);
+        const product = result.rows[0];
+
+        if (!product) throw new NotFoundError(`No product found with the id ${id}`);
+
+        return product;
+    }
+
+    /**Delete given product from db; returns undefined.
+     * Throws NotFoundError if product not found.
+     */
+
+    static async remove(id) {
+        const result = await db.query(
+            `DELETE
+            FROM products
+            WHERE id = $1
+            RETURNING handle`,
+            [id]);
+        const product = result.rows[0];
+
+        if (!product) throw new NotFoundError(`No product found with the id ${id}`);
+        }
+
+    }
+
+module.exports = Product;
 
