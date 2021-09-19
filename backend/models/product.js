@@ -65,6 +65,27 @@ class Product {
                      FROM products`;
         let whereExpressions = [];
         let queryValues = [];
+
+        const { byCategory, byName } = searchFilters;
+
+        if (byName) {
+            queryValues.push(`%${byName}%`);
+            whereExpressions.push(`name ILIKE $${queryValues.length}`);
+        }
+
+        if(byCategory) {
+            queryValues.push(`%${byCategory}%`);
+            whereExpressions.push(`category ILIKE $${queryValues.length}`);
+        }
+
+        if(whereExpressions.length > 0) {
+            query += ' WHERE ' + whereExpressions.join(' AND ');
+        }
+
+        //finalize and return results
+        query += ' ORDER BY name';
+        const productsRes = await db.query(query, queryValues);
+        return productsRes.rows;
     }
 
 }
