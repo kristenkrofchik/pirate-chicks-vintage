@@ -14,7 +14,7 @@ VALUES ('Planters'),
        ('Books'),
        ('Wall Art');
 
-INSERT INTO products (product_name, description, product_image, quantity, primary_color, era, height, width, date_added, price, category_name)
+INSERT INTO products (name, description, image, quantity, primary_color, era, height, width, date_added, price, category_name)
 VALUES ('Vintage Dan River Floral Pillowcase Pair', 
         'This is a set of 2 vintage standard pillowcases by Dan River. They are a 50/50 poly cotton blend and have a lovely bold floral design.', 
         'great', null, 1, null, '1970s', null, null, GETDATE(), 14.00, 'Linens'),

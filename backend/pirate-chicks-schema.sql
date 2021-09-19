@@ -5,10 +5,10 @@ CREATE TABLE categories (
 
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,
-    product_name TEXT NOT NULL,
+    name TEXT NOT NULL,
     description TEXT NOT NULL,
     condition TEXT NOT NULL,
-    product_image URL, 
+    image URL, 
     quantity INTEGER NOT NULL,
     primary_color TEXT,
     era TEXT NOT NULL,
