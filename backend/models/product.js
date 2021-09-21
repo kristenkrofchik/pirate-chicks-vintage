@@ -16,7 +16,7 @@ class Product {
             [handle]);
         
         if(duplicateCheck.rows[0])
-            throw new BadRequestError(`This prodcut already exists in the database: ${product_name}`);
+            throw new BadRequestError(`This product already exists in the database: ${product_name}`);
         
         const result = await db.query(
             `INSERT INTO companies
