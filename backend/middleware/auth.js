@@ -32,12 +32,27 @@ function ensureLoggedIn(req, res, next) {
     }
 }
 
-/**Ensure correct user- user must proivde a valid token and match username. If not, raise Unauthorized */
+/**Ensure admin (user logged in as admin)
+ * If not, raise Unauthorized
+ */
 
-function ensureCorrectUser(req, res, next) {
+function ensureAdmin(req, res, next) {
+    try {
+      if (!res.locals.user || !res.locals.user.isAdmin) {
+        throw new UnauthorizedError();
+      }
+      return next();
+    } catch (err) {
+      return next(err);
+    }
+  }
+
+/**Ensure correct user or admin- user must proivde a valid token and match username. If not, raise Unauthorized */
+
+function ensureCorrectUserOrAdmin(req, res, next) {
     try {
         const user = res.locals.user;
-        if(!(user && user.username === req.params.username)) {
+        if(!(user && (user.isAdmin || user.username === req.params.username))) {
             throw new UnauthorizedError();
         }
         return next();
@@ -49,5 +64,6 @@ function ensureCorrectUser(req, res, next) {
 module.exports = {
     authenticateJWT,
     ensureLoggedIn, 
-    ensureCorrectUser
+    ensureAdmin,
+    ensureCorrectUserOrAdmin
 };
