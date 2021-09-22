@@ -23,6 +23,9 @@ img.medium {
   width: 100%;
 }
 
+img.large {
+  width: 100%;
+}
 /* Card */
 .card {
   border: 0.1rem solid;
@@ -37,4 +40,8 @@ img.medium {
 
 .card-body > * {
   margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 2rem;
 }

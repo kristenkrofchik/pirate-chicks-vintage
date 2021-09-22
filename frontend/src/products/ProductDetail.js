@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import PirateApi from './api';
 
@@ -17,6 +17,8 @@ function ProductDetail() {
     }, [id]);
 
     return (
+        <div>
+        <Link to='/products'>Back to Results</Link>
         <div className='row top'>
             <div className='col-2'>
                 <img className='large' src={product.image} alt={product.name}></img>
@@ -67,6 +69,7 @@ function ProductDetail() {
                 </div>
             </div>
         </div>
+    </div>
     )
 }
 
