@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import Routes from './routes/Routes';
-import Product from './products/Product';
+import Homepage from './home/Homepage';
 
 function App() {
   return (
@@ -19,13 +19,7 @@ function App() {
       </header>
       <main>
         <Routes />
-         <div>
-            <div className='row center'>
-              {data.products.map((product) => (
-                <Product key={key} product={product}></Product>
-              ))}
-              </div>
-          </div>
+        <Homepage />
       </main>
       <footer className='row center'>All rights reserved</footer>
     </div>
