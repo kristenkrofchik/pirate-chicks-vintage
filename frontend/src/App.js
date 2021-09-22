@@ -1,6 +1,8 @@
 import React from 'react';
-import Product from './products/Product';
 import { BrowserRouter } from 'react-router-dom';
+
+import Routes from './routes/Routes';
+import Product from './products/Product';
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
           </div>
       </header>
       <main>
+        <Routes />
          <div>
             <div className='row center'>
               {data.products.map((product) => (
