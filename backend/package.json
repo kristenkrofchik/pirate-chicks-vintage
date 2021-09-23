@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kristenkrofchik/pirate-chicks-vintage/issues"
   },
-  "homepage": "https://github.com/kristenkrofchik/pirate-chicks-vintage#readme"
+  "homepage": "https://github.com/kristenkrofchik/pirate-chicks-vintage#readme",
+  "dependencies": {
+    "jsonschema": "^1.4.0"
+  }
 }

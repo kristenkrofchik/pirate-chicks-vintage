@@ -11,7 +11,7 @@ CREATE TABLE products (
     image URL, 
     quantity INTEGER NOT NULL,
     primary_color TEXT,
-    era TEXT NOT NULL,
+    era TEXT,
     height_in_inches INTEGER,
     width_in_inches INTEGER,
     date_added TIMESTAMP NOT NULL, 
