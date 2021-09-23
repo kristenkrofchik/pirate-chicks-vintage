@@ -1,20 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Product(props) {
-    const {product} = props;
+function ProductCard({id, image, name, price}) {
     return (
-        <div key={product.id} className='card'>
-            <a href={`/product/${product.id}`}>
-                <img className='medium' src={product.image} alt={product.name} />
-            </a>
+        <Link className='ProductCard card' to={`/products/${id}`}>
             <div className='card-body'>
-                <a href={`/product/${product.id}`}>
-                    <h2>{product.name}</h2>
-                </a>
-                <h4>{product.price}</h4>
+                <h2>{name}</h2>
+                <img src={image} alt={name} />
+                <h4>{price}</h4>
             </div>
-        </div>
+        </Link>
     )
 }
 
-export default Product;
+export default ProductCard;

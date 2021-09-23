@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 import PirateApi from './api';
+import LoadingSpinner from '../common/LoadingSpinner';
 
 
 function ProductDetail() {
@@ -16,6 +17,7 @@ function ProductDetail() {
         getProduct();
     }, [id]);
 
+    if (!product) return <LoadingSpinner />
     return (
         <div>
         <Link to='/products'>Back to Results</Link>
