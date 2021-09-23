@@ -46,7 +46,7 @@ class Product {
     /**Find all products (optional filter on searchFilters).
      * 
      * searchFilters (optional):
-     * -category
+
      * -name (will find case-insensitive, partial match)
      */
     static async findAll(searchFilters = {}) {
