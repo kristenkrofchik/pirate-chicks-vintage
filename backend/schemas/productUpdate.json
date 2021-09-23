@@ -1,0 +1,59 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "required": [
+        "product"
+    ],
+    "properties": {
+        "product": {
+            "required": [],
+            "title": "The product schema",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "condition": {
+                    "type": "string",
+                },
+                "image": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "integer",
+                    "default": 1
+                },
+                "primary-color": {
+                    "type": "string"
+                },
+                "era": {
+                    "type": "string"
+                },
+                "height_in_inches": {
+                    "type": "integer"
+                },
+                "width_in_inches": {
+                    "type": "integer"
+                },
+                "date_added": {
+                    "type": "string",
+                    "examples": [
+                        "2000-02-01 00:00:00"
+                    ]
+                },
+                "price": {
+                    "type": "number",
+                },
+                "category_name": {
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false
+}
