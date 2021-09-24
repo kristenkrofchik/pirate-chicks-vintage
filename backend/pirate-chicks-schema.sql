@@ -20,6 +20,13 @@ CREATE TABLE products (
       REFERENCES categories ON DELETE CASCADE
 );
 
+CREATE TABLE products_categories (
+  product_id PRIMARY KEY
+    REFERENCES products ON DELETE CASCADE,
+  category_id PRIMARY KEY
+    REFERENCES categories ON DELETE CASCADE
+)
+
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username VARCHAR(25),
