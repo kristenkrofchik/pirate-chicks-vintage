@@ -5,7 +5,7 @@ import ProductList from "../products/ProductList";
 import ProductDetail from '../products/ProductDetail';
 import Cart from '../cart/Cart';
 import LoginForm from '../auth/LoginForm';
-import ProfileForm from '../profiles/ProfileForm';
+import Profile from '../profile/Profile';
 import SignupForm from "../auth/SignupForm";
 import PrivateRoute from "./PrivateRoute";
 
@@ -40,7 +40,7 @@ function Routes({ login, signup }) {
           </Route>
 
           <PrivateRoute path="/profile">
-            <ProfileForm />
+            <Profile />
           </PrivateRoute>
 
           <Route path='/cart/:id?'>
