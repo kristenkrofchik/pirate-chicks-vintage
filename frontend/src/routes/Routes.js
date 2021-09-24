@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Homepage from "../home/Homepage";
 import ProductList from "../products/ProductList";
 import ProductDetail from '../products/ProductDetail';
+import Cart from '../cart/Cart';
 import LoginForm from '../auth/LoginForm';
 import ProfileForm from '../profiles/ProfileForm';
 import SignupForm from "../auth/SignupForm";
@@ -41,6 +42,10 @@ function Routes({ login, signup }) {
           <PrivateRoute path="/profile">
             <ProfileForm />
           </PrivateRoute>
+
+          <Route path='/cart/:id?'>
+            <Cart />
+          </Route>
 
           <Redirect to="/" />
         </Switch>

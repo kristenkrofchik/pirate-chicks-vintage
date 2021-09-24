@@ -21,6 +21,11 @@ function Navigation({ logout }) {
             </NavLink>
           </li>
           <li className="nav-item mr-4">
+              <NavLink className="nav-link" to="/cart">
+                Cart
+              </NavLink>
+          </li>
+          <li className="nav-item mr-4">
             <NavLink className="nav-link" to="/profile">
               Profile
             </NavLink>
@@ -37,9 +42,14 @@ function Navigation({ logout }) {
   function loggedOutNav() {
     return (
         <ul className="navbar-nav ml-auto">
-            <li className="nav-item mr-4">
+          <li className="nav-item mr-4">
               <NavLink className="nav-link" to="/products">
                 Shop
+              </NavLink>
+          </li>
+          <li className="nav-item mr-4">
+              <NavLink className="nav-link" to="/cart">
+                Cart
               </NavLink>
           </li>
           <li className="nav-item mr-4">

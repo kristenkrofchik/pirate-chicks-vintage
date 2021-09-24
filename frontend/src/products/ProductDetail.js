@@ -5,7 +5,7 @@ import PirateApi from './api';
 import LoadingSpinner from '../common/LoadingSpinner';
 
 
-function ProductDetail() {
+function ProductDetail(props) {
     const { id } = useParams();
 
     const [product, setProduct] = useState(null);
@@ -18,6 +18,11 @@ function ProductDetail() {
     }, [id]);
 
     if (!product) return <LoadingSpinner />
+
+    function addToCart() {
+       props.history.push(`/cart/${product.id}`) 
+    };
+
     return (
         <div>
         <Link to='/products'>Back to Results</Link>
@@ -64,9 +69,13 @@ function ProductDetail() {
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <button className='primary block'>Add to Cart</button>
-                        </li>
+                        {
+                            product.quantity > 0 && (
+                                <li>
+                                    <button className='primary block' onClick={addToCart}>Add to Cart</button>
+                                </li>
+                            )
+                        }
                     </ul>
                 </div>
             </div>
