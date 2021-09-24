@@ -43,9 +43,9 @@ function Routes({ login, signup }) {
             <Profile />
           </PrivateRoute>
 
-          <Route path='/cart/:id?'>
+          <PrivateRoute path='/cart/:id?'>
             <Cart />
-          </Route>
+          </PrivateRoute>
 
           <Redirect to="/" />
         </Switch>

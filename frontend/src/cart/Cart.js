@@ -1,14 +1,25 @@
-import React from 'react';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import React, { useState, useContext } from 'react';
+import UserContext from './UserContext';
+import PirateApi from '../common/api';
+import CartItem from './CartItem';
 
-function Cart() {
-    const {id} = useParams();
+
+
+function Cart({id}) {
+    let {currentUser} = useContext(UserContext);
+
+    const [cart, setCart] = useState();
+
+    async function addToCart() {
+        setCart(await PirateApi.addToCart(currentUser.username, id));
+    }
 
     return (
         <div>
-            <h1>Add to Shopping Cart</h1>
-            <p>{id}</p>
-        </div>
+            {cart.map(i => (
+                <CartItem key={i.id} id ={i.id} name={i.name} price={i.price} image={i.image} addToCart={addToCart} />
+        ))}
+    </div>
     )
 }
 

@@ -21,7 +21,6 @@ export const TOKEN_STORAGE_ID = 'pirate-token';
 
 function App() {
   const [infoLoaded, setInfoLoaded] = useState(false);
-  const [applicationIds, setApplicationIds] = useState(new Set([]));
   const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
 
@@ -37,7 +36,6 @@ function App() {
           PirateApi.token = token;
           let currentUser = await PirateApi.getCurrentUser(username);
           setCurrentUser(currentUser);
-          setApplicationIds(new Set(currentUser.applications));
         } catch (err) {
           console.error("App loadUserInfo: problem loading", err);
           setCurrentUser(null);

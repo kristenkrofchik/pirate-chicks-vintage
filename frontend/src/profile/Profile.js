@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import PirateApi from '../common/Api';
 import UserContext from './UserContext';
-import Alert from './Alert';
+import Alert from '../common/Alert';
 
 
 function Profile() {
