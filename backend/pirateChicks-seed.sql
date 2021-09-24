@@ -34,6 +34,20 @@ VALUES ('Vintage Dan River Floral Pillowcase Pair',
         'This is a vintage midcentury ceramic lady head vase made by Enesco in Japan. This vase or planter depicts a young girl holding a white cat.',
         'good', null, 1, 'pink', 'Midcentury', null, null, GETDATE(), 48.00, 'Kitsch')
 
+INSERT INTO users (username, password, first_name, last_name, email, is_admin)
+VALUES ('testuser',
+        '$2b$12$AZH7virni5jlTTiGgEg4zu3lSvAw68qVEfSIOjJ3RqtbJbdW/Oi5q',
+        'Test',
+        'User',
+        'joel@joelburton.com',
+        FALSE),
+       ('testadmin',
+        '$2b$12$AZH7virni5jlTTiGgEg4zu3lSvAw68qVEfSIOjJ3RqtbJbdW/Oi5q',
+        'Test',
+        'Admin!',
+        'joel@joelburton.com',
+        TRUE);
+
 
 
 

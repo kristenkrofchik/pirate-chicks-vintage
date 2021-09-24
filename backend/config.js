@@ -12,8 +12,8 @@ const PORT = +process.env.PORT || 3001;
 /** Use either app database or testing database */
 function getDatabase() {
     return(process.env.NODE_ENV === 'test')
-        ? 'pirate-chicks-test'
-        : process.env.DATABASE_URL || 'pirate-chicks';
+        ? 'pirateChicksTest'
+        : process.env.DATABASE_URL || 'pirateChicks';
 }
 
 /** Speed up bcrypt for testing */

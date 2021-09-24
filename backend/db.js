@@ -1,23 +1,19 @@
 'use strict'
 
 /** Database setup for pirate-chicks */
-const { Client } = require('pg');
-const { getDatabase } = require('./config');
+const { Client } = require("pg");
 
-let db;
+let DB_URI;
 
-if (process.env.NODE_ENV === 'production') {
-    db = new Client({
-        connectionString: getDatabase(),
-        ssl: {
-            rejectUnauthorized: false
-        }
-    });
+if (process.env.NODE_ENV === "test") {
+  DB_URI = "postgresql:///pirateChicksTest";
 } else {
-    db = new Client({
-        connectionString: getDatabase()
-    });
+  DB_URI = "postgresql:///pirateChicks";
 }
+
+let db = new Client({
+  connectionString: DB_URI
+});
 
 db.connect();
 
