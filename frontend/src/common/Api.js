@@ -15,7 +15,8 @@ class PirateApi {
         const url = `${BASE_URL}/${endpoint}`;
         const headers = {Authorization: `Bearer ${PirateApi.token}`};
         const params = (method === 'get') 
-            ? data: {};
+            ? data
+            : {};
 
         try {
             return (await axios({ url, method, data, params, headers})).data;
@@ -26,9 +27,9 @@ class PirateApi {
         }
     }
 
-    /**Get list of all products, filtered by name if present */
-    static async getProducts(name) {
-        let res = await this.request('products', { name });
+    /**Get list of all products, filtered by searchTerm if present */
+    static async getProducts(searchTerm) {
+        let res = await this.request('products', { searchTerm });
         return res.products;
     }
 
