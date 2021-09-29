@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import useLocalStorage from './common/useLocalStorage';
 import Navigation from './routes/Navigation';
 import LoadingSpinner from './common/LoadingSpinner';
-import PirateApi from './common/api';
+import PirateApi from './common/Api';
 import UserContext from './auth/UserContext';
 import jwt from 'jsonwebtoken';
 import Routes from './routes/Routes';
