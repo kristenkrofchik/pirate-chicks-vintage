@@ -14,7 +14,7 @@ const productSearchSchema = require("../schemas/productSearch.json");
 const router = new express.Router();
 
 /** POST / 
- * {company} => {company} 
+ * {product} => {product} 
  * Authorization required: admin
 */
 

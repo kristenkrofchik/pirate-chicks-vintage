@@ -8,7 +8,7 @@ CREATE TABLE products (
     name TEXT NOT NULL,
     description TEXT NOT NULL,
     condition TEXT NOT NULL,
-    image URL, 
+    image URL,
     quantity INTEGER NOT NULL,
     primary_color TEXT,
     era TEXT,
