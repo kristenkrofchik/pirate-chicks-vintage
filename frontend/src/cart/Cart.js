@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import UserContext from './UserContext';
+import UserContext from '../auth/UserContext';
 import PirateApi from '../common/api';
 import CartItem from './CartItem';
 

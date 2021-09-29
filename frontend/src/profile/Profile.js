@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import PirateApi from '../common/Api';
-import UserContext from './UserContext';
+import UserContext from '../auth/UserContext';
 import Alert from '../common/Alert';
 
 

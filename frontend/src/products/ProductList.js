@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import SearchForm from '../common/SearchForm';
-import PirateApi from '../common/api';
+import PirateApi from '../common/Api';
 import ProductCard from './ProductCard';
 import LoadingSpinner from "../common/LoadingSpinner";
 
