@@ -1,6 +1,5 @@
 CREATE TABLE categories (
-    id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
+    name TEXT PRIMARY KEY
 );
 
 CREATE TABLE products (
@@ -8,7 +7,7 @@ CREATE TABLE products (
     name TEXT NOT NULL,
     description TEXT NOT NULL,
     condition TEXT NOT NULL,
-    image URL,
+    image TEXT,
     quantity INTEGER NOT NULL,
     primary_color TEXT,
     era TEXT,
@@ -21,11 +20,12 @@ CREATE TABLE products (
 );
 
 CREATE TABLE products_categories (
-  product_id PRIMARY KEY
-    REFERENCES products ON DELETE CASCADE,
-  category_id PRIMARY KEY
-    REFERENCES categories ON DELETE CASCADE
-)
+  product_id INTEGER
+    REFERENCES products NOT NULL ON DELETE CASCADE,
+  category_name TEXT
+    REFERENCES categories NOT NULL ON DELETE CASCADE,
+  PRIMARY KEY (product_id, category_name)
+);
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
@@ -82,14 +82,6 @@ CREATE TABLE order_details (
     user_id INTEGER NOT NULL
       REFERENCES users ON DELETE CASCADE,
     total INTEGER NOT NULL,
-    payment_id INTEGER NOT NULL
-      REFERENCES order_payment_details ON DELETE CASCADE
-);
-
-CREATE TABLE order_payment_details (
-    id SERIAL PRIMARY KEY,
-    order_id INTEGER NOT NULL
-      REFERENCES order_details ON DELETE CASCADE,
     amount DECIMAL NOT NULL,
     provider TEXT NOT NULL,
     status TEXT NOT NULL,

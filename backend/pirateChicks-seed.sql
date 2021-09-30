@@ -1,4 +1,4 @@
-INSERT INTO categories (name, description) 
+INSERT INTO categories (name) 
 VALUES ('Planters'),
        ('Linens'),
        ('Halloween'),
@@ -86,7 +86,7 @@ VALUES ('Vintage Dan River Floral Pillowcase Pair',
         null, 
         GETDATE(), 
         48.00, 
-        'Kitsch')
+        'Kitsch');
 
 INSERT INTO users (username, password, first_name, last_name, email, is_admin)
 VALUES ('testuser',
