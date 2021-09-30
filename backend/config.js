@@ -23,7 +23,7 @@ console.log('Pirate Chicks Config:'.green);
 console.log('SECRET_KEY:'.yellow, SECRET_KEY);
 console.log('PORT:'.yellow, PORT.toString());
 console.log('BCRYPT_WORK_FACTOR'.yellow, BCRYPT_WORK_FACTOR);
-console.log('Databse:'.yellow, getDatabase());
+console.log('Database:'.yellow, getDatabase());
 console.log('---');
 
 module.exports = {

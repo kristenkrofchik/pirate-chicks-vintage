@@ -2,18 +2,22 @@
 
 /** Database setup for pirate-chicks */
 const { Client } = require("pg");
+const { getDatabase } = require("./config");
 
-let DB_URI;
+let db;
 
-if (process.env.NODE_ENV === "test") {
-  DB_URI = "postgresql:///pirateChicksTest";
+if (process.env.NODE_ENV === "production") {
+  db = new Client({
+    connectionString: getDatabase(),
+    ssl: {
+      rejectUnauthorized: false
+    }
+  });
 } else {
-  DB_URI = "postgresql:///pirateChicks";
+  db = new Client({
+    connectionString: getDatabase()
+  });
 }
-
-let db = new Client({
-  connectionString: DB_URI
-});
 
 db.connect();
 
