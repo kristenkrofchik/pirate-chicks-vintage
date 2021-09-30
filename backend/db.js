@@ -1,6 +1,6 @@
 'use strict'
 
-/** Database setup for pirate-chicks */
+/** Database setup for piratechicks */
 const { Client } = require("pg");
 const { getDatabase } = require("./config");
 

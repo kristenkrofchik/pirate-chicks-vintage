@@ -47,7 +47,7 @@ function ProductList() {
               <p className="lead">Sorry, no results were found!</p>
           )}
     </div>
-);
+  );
 }  
 
 export default ProductList;
