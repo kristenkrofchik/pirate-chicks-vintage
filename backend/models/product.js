@@ -55,13 +55,13 @@ class Product {
                             condition,
                             image,
                             quantity,
-                            primary_color AS 'primaryColor',
+                            primary_color AS "primaryColor",
                             era,
-                            height_in_inches AS 'heightInInches',
-                            width_in_inches AS 'widthInInches',
-                            date_added AS 'dateAdded',
+                            height_in_inches AS "heightInInches",
+                            width_in_inches AS "widthInInches",
+                            date_added AS "dateAdded",
                             price,
-                            category_name AS 'categoryName'
+                            category_name AS "categoryName"
                      FROM products`;
         let whereExpressions = [];
         let queryValues = [];
