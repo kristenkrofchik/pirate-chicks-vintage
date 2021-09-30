@@ -1,18 +1,18 @@
 \echo 'Delete and recreate pirateChicks db?'
 \prompt 'Return for yes or control-C to cancel > ' foo
 
-DROP DATABASE pirateChicks;
-CREATE DATABASE pirateChicks;
-\connect pirateChicks
+DROP DATABASE piratechicks;
+CREATE DATABASE piratechicks;
+\connect piratechicks
 
-\i pirateChicks-schema.sql
-\i pirateChicks-seed.sql
+\i piratechicks-schema.sql
+\i piratechicks-seed.sql
 
-\echo 'Delete and recreate pirate-chicks_test db?'
+\echo 'Delete and recreate piratechicks_test db?'
 \prompt 'Return for yes or control-C to cancel > ' foo
 
-DROP DATABASE pirateChicks_test;
-CREATE DATABASE pirateChicks_test;
-\connect pirateChicks_test
+DROP DATABASE piratechicks_test;
+CREATE DATABASE piratechicks_test;
+\connect piratechicks_test
 
-\i pirateChicks-schema.sql
+\i piratechicks-schema.sql

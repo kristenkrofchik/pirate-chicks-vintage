@@ -13,7 +13,7 @@ CREATE TABLE products (
     era TEXT,
     height_in_inches INTEGER,
     width_in_inches INTEGER,
-    date_added TIMESTAMP NOT NULL, 
+    date_added TIMESTAMP NOT NULL DEFAULT NOW(), 
     price DECIMAL NOT NULL,
     category_name TEXT
       REFERENCES categories ON DELETE CASCADE
@@ -85,7 +85,7 @@ CREATE TABLE order_details (
     amount DECIMAL NOT NULL,
     provider TEXT NOT NULL,
     status TEXT NOT NULL,
-    date TIMESTAMP NOT NULL
+    date TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE order_items (
