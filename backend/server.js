@@ -1,3 +1,5 @@
+//Server startup for Pirate Chicks Vintage
+
 'use strict'
 
 const app = require('./app');

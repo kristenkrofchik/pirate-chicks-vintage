@@ -1,14 +1,10 @@
+//Express app for Pirate Chicks Vintage
 'use strict'
 
 const express = require('express');
 const cors = require('cors');
-
-const { NotFoundError } = require('./expressError');
-
 const { authenticateJWT } = require('./middleware/auth');
-const authRoutes = require('./routes/auth');
-const productRoutes = require('./routes/products');
-const userRoutes = require('./routes/users');
+const { NotFoundError } = require('./expressError');
 
 const morgan = require('morgan');
 
@@ -19,16 +15,24 @@ app.use(express.json());
 app.use(morgan('tiny'));
 app.use(authenticateJWT);
 
+//Routes
+
+const authRoutes = require('./routes/auth');
+const productRoutes = require('./routes/products');
+const userRoutes = require('./routes/users');
+
 app.use('/auth', authRoutes);
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
 
 /**Handle 404 errors */
+
 app.use(function (req, res, next) {
     return next(new NotFoundError());
 });
 
 /**Generic error handler for anything unhandled above */
+
 app.use(function (err, req, res, next) {
     if (process.env.NODE_ENV !== 'test') console.error(err.stack);
     const status = err.status || 500;
