@@ -1,20 +1,18 @@
+//Routes for user data
 'use strict';
 
-
 const jsonschema = require("jsonschema");
+const userUpdateSchema = require("../schemas/userUpdate.json");
 
-const express = require("express");
 const { ensureCorrectUserOrAdmin } = require("../middleware/auth");
 const { BadRequestError } = require("../expressError");
 const User = require("../models/user");
-const userUpdateSchema = require("../schemas/userUpdate.json");
 
+const express = require("express");
 const router = express.Router();
 
 /** GET /[username] => { user }
- *
  * Returns user info (used for user profile)
- *
  * Authorization required: same user-as-:username or admin
  **/
 
@@ -29,12 +27,9 @@ router.get("/:username", ensureCorrectUserOrAdmin, async function (req, res, nex
 
 
 /** PATCH /[username] { user } => { user }
- *
  * Data can include:
  *   { firstName, lastName, password, email }
- *
  * Returns { username, firstName, lastName, email }
- *
  * Authorization required: same-user-as-:username or admin
  **/
 

@@ -1,3 +1,5 @@
+//User class for Pirate Chicks Vintage
+
 "use strict";
 
 const db = require('../db');
